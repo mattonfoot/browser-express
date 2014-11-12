@@ -1,0 +1,15 @@
+lib-cov
+pids
+logs
+results
+coverage
+reports
+browser
+
+node_modules
+bower_modules
+npm-debug.log
+
+.DS_Store
+._.*
+*-temp

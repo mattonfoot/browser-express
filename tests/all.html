@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>All tests for brwoser express</title>
+  <link rel="stylesheet" media="all" href="../node_modules/mocha/mocha.css">
+</head>
+<body>
+  <div id="mocha"><p><a href=".">Index</a></p></div>
+  <div id="messages"></div>
+  <div id="fixtures"></div>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+
+  <script>mocha.setup('bdd')</script>
+
+  <script src="all.js"></script>
+  <script src="support/jade.js"></script>
+  <script>
+      window.env = 'test';
+  </script>
+
+  <script>mocha.run();</script>
+
+<script type="text/html" data-path="/fixtures/user.html"><p>{{user.name}}</p></script>
+
+<!-- NOTE: jade is really funny about white space -->
+<script type="text/jade" data-path="/fixtures/user.jade">
+p= user.name
+</script>
+
+<!-- NOTE: jade is really funny about white space -->
+<script type="text/jade" data-path="/fixtures/name.jade">
+p= name
+</script>
+
+<!-- NOTE: jade is really funny about white space -->
+<script type="text/jade" data-path="/fixtures/default_layout/user.jade">
+p= user.name
+</script>
+
+<!-- NOTE: jade is really funny about white space -->
+<script type="text/jade" data-path="/fixtures/default_layout/name.jade">
+p= name
+</script>
+
+<!-- NOTE: jade is really funny about white space -->
+<script type="text/jade" data-path="/fixtures/local_layout/user.jade">
+span= user.name
+</script>
+
+<script type="text/html" data-path="/fixtures/blog.html"><b>index</b></script>
+
+<!-- NOTE: jade is really funny about white space -->
+<script type="text/jade" data-path="/fixtures/blog/post.jade">
+h1 blog post
+</script>
+
+<!-- NOTE: jade is really funny about white space -->
+<script type="text/jade" data-path="/fixtures/email.jade">
+p This is an email
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>basic expression hello world app</title>
+</head>
+<body>
+  <a href="./link-one.html">Link One</a><br/>
+  <a href="./link-two.html">Link Two</a><br/>
+
+  <form method="get" action="./form-get.html">
+      <input name="get-param" value="get-value" />
+      <button type="submit">GET</button>
+  </form>
+
+  <form method="post" action="./form-post.html">
+      <input name="post-param" value="post-value" />
+      <button type="submit">POST</button>
+  </form>
+
+  <div id="main">
+      <h1>Initial State</h1>
+  </div>
+
+  <script src="browser-express.js"></script>
+  <script src="support/mustache.js"></script>
+  <script>
+      window.env = 'development';
+
+      var app = window.expression();
+
+      // setup content div
+
+      app.set( 'render target', document.getElementById( 'main' ) );
+      app.engine( 'mustache', function( template, view, fn) {
+          var err, result;
+          try {
+              result = window.Mustache.render( template, view );
+          } catch ( e ) {
+              err = e;
+          }
+          fn( err, result );
+      });
+
+      // handle all requests
+
+      app.all('/:foo', function( req, res ) {
+          res.render( '/general.mustache', {
+              title: "Request for " + req.url,
+              message: "resulted in parameter value: " + req.params.foo
+          });
+
+          console.log( 'handled request for ' + req.url );
+      });
+
+      app.listen();
+
+      console.log( 'Expression started' );
+  </script>
+
+<script type="text/mustache" data-path="/general.mustache">
+    <h1>{{title}}</h1>
+    <p>{{message}}</p>
+</script>
+</body>
+</html>
