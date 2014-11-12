@@ -46,6 +46,7 @@
     "methods": "^1.1.0",
     "mocha": "*",
     "mocha-lcov-reporter": "*",
+    "proxy-addr": "^1.0.3",
     "utils-merge": "^1.0.0"
   },
   "dependencies": {
