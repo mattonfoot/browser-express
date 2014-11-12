@@ -6,7 +6,7 @@ module.exports = function( config ) {
             options: {
                 useAvailablePort: true,
                 keepalive: true,
-                base: [ './dist', './tests' ]
+                base: [ './' ]
             }
 
         }

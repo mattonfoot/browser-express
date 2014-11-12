@@ -44,17 +44,27 @@ module.exports = function( grunt )
     // clean
     // grunt.registerTask('clean'         , [ 'clean' ]);
 
+    // lint
+    grunt.registerTask('lint:test'        , [ 'jshint:test', 'eslint:test' ]);
+    grunt.registerTask('lint:src'         , [ 'jshint:src', 'eslint:src' ]);
+    grunt.registerTask('lint'             , [ 'lint:test', 'lint:src' ]);
+
+    //prepare
+    grunt.registerTask('prepare:test'     , [ 'clean:test', 'copy:test', 'copy:support', 'browserify:test' ]);
+    grunt.registerTask('prepare:src'      , [ 'clean:dist', 'browserify:dist' ]);
+    grunt.registerTask('prepare'          , [ 'prepare:test', 'prepare:coverage', 'prepare:src' ]);
+
     // test
-    grunt.registerTask('coverage'         , [ 'clean:coverage', 'blanket', 'copy:coverage', 'mocha:coverage', 'mocha:lcov']);
-    grunt.registerTask('test'             , [/* 'jshint:test', 'eslint:test', */ 'copy:test', 'copy:support', 'browserify:test', 'mocha:test' ]);
+    grunt.registerTask('coverage'         , [ 'prepare:test', 'blanket_mocha:coverage' ]);
+    grunt.registerTask('test'             , [ 'prepare:test', 'mocha:test' ]);
 
     // prepare
-    grunt.registerTask('build'            , [/* 'jshint:src', 'eslint:src', */ 'copy:support', 'clean:dist', 'browserify:dist' ]);
+    grunt.registerTask('build'            , [ 'prepare:src' ]);
 
     // auto build
     grunt.registerTask('default'          , [ 'watch' ]);
 
     // ci
-    grunt.registerTask('ci'               , [ 'test', 'coverage', 'coveralls' ]);
+    grunt.registerTask('ci'               , [ 'build', 'test', 'coverage', 'coveralls' ]);
 
 };

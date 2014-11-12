@@ -2,10 +2,11 @@ module.exports = function() {
 
     return {
 
-        test: {
+        coverage: {
             options: {
                 run: true,
-                reporter: 'Spec'
+                reporter: 'Spec',
+                threshold : 70
             }
 
           , src: [ 'browser/**/*.html', '!browser/navigation.html' ]

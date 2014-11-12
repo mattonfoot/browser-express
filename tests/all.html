@@ -12,15 +12,23 @@
   <script src="../node_modules/mocha/mocha.js"></script>
   <script src="../node_modules/chai/chai.js"></script>
 
-  <script>mocha.setup('bdd')</script>
-
-  <script src="all.js"></script>
-  <script src="support/jade.js"></script>
   <script>
-      window.env = 'test';
+      mocha.setup('bdd');
   </script>
 
-  <script>mocha.run();</script>
+  <script src="./all.js" data-cover></script>
+  <script src="./support/jade.js"></script>
+<!--
+  <script src="../node_modules/blanket/dist/qunit/blanket.js"></script>
+  <script src="../node_modules/grunt-blanket-mocha/support/mocha-blanket.js"></script>
+-->
+  <script>
+      window.env = 'test';
+
+      if (window.PHANTOMJS) {
+          //blanket.options("reporter", "../node_modules/grunt-blanket-mocha/support/grunt-reporter.js");
+      }
+  </script>
 
 <script type="text/html" data-path="/fixtures/user.html"><p>{{user.name}}</p></script>
 
@@ -59,6 +67,12 @@ h1 blog post
 <!-- NOTE: jade is really funny about white space -->
 <script type="text/jade" data-path="/fixtures/email.jade">
 p This is an email
+</script>
+
+<script>
+    if (!window.PHANTOMJS) {
+        mocha.run();
+    }
 </script>
 </body>
 </html>
