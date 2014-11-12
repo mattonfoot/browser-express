@@ -11,16 +11,17 @@
   "license": "MIT",
   "testling": {
     "browsers": [
-        "ie/latest",
-        "firefox/latest",
-        "chrome/latest",
-        "opera/latest",
-        "safari/latest"
+      "ie/latest",
+      "firefox/latest",
+      "chrome/latest",
+      "opera/latest",
+      "safari/latest"
     ],
-    "harness" : "mocha",
+    "harness": "mocha",
     "html": "browser/all.html"
   },
   "devDependencies": {
+    "after": "^0.8.1",
     "blanket": "^1.1.6",
     "body-parser": "^1.9.2",
     "chai": "*",
