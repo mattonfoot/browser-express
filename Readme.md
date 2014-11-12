@@ -15,7 +15,7 @@ app.listen();
 ```
 
 [![browser support](https://ci.testling.com/mattonfoot/browser-express.png)
-](https://ci.testling.com//mattonfoot/browser-express)
+](https://ci.testling.com/mattonfoot/browser-express)
 
 
 ### Installation
