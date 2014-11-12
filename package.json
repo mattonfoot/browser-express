@@ -25,6 +25,7 @@
     "blanket": "^1.1.6",
     "body-parser": "^1.9.2",
     "chai": "*",
+    "escape-html": "^1.0.1",
     "glob": "*",
     "grunt": "*",
     "grunt-blanket": "*",
