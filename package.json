@@ -42,6 +42,7 @@
     "grunt-coveralls": "*",
     "grunt-mocha": "*",
     "load-grunt-tasks": "*",
+    "media-typer": "^0.3.0",
     "methods": "^1.1.0",
     "mocha": "*",
     "mocha-lcov-reporter": "*"
