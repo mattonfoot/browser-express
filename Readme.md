@@ -4,8 +4,9 @@ Browser Express
 Fast, unopinionated, minimalist web framework for web browsers.
 
 [ ![Codeship Status for mattonfoot/browser-express](https://codeship.com/projects/785abfc0-4cb8-0132-e4eb-22cd93d2d61d/status)](https://codeship.com/projects/47207)
-
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/mattonfoot.svg)](https://saucelabs.com/u/mattonfoot)
+[ ![Sauce Test Status for mattonfoot/browser-express](https://saucelabs.com/buildstatus/mattonfoot)](https://saucelabs.com/u/mattonfoot)
+  
+[ ![Sauce Test Status for mattonfoot/browser-express](https://saucelabs.com/browser-matrix/mattonfoot.svg)](https://saucelabs.com/u/mattonfoot)
 
 ```js
 var express = require('browser-express');
