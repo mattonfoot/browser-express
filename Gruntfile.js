@@ -56,7 +56,14 @@ module.exports = function( grunt )
 
     // test
     grunt.registerTask('coverage'         , [ 'prepare:test', 'blanket_mocha:coverage' ]);
-    grunt.registerTask('test'             , [ 'prepare:test', 'mocha:test' ]);
+  	var testJobs                          = [ 'prepare:test' ];
+	  if (typeof config.env.SAUCE_ACCESS_KEY !== 'undefined') {
+        testJobs.push( 'connect:test' );
+        testJobs.push( 'saucelabs-mocha' );
+  	} else {
+        testJobs.push( 'mocha:test' );
+    }
+    grunt.registerTask('test'             , testJobs);
 
     // prepare
     grunt.registerTask('build'            , [ 'prepare:src' ]);

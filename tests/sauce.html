@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>All tests for brwoser express</title>
+  <link rel="stylesheet" media="all" href="../node_modules/mocha/mocha.css">
+</head>
+<body>
+  <div id="mocha"><p><a href=".">Index</a></p></div>
+  <div id="messages"></div>
+  <div id="fixtures"></div>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+
+  <script>
+      mocha.setup('bdd');
+  </script>
+
+  <script src="./all.js" data-cover></script>
+  <script src="./support/jade.js"></script>
+<!--
+  <script src="../node_modules/blanket/dist/qunit/blanket.js"></script>
+  <script src="../node_modules/grunt-blanket-mocha/support/mocha-blanket.js"></script>
+-->
+  <script>
+      window.env = 'test';
+
+      if (window.PHANTOMJS) {
+          //blanket.options("reporter", "../node_modules/grunt-blanket-mocha/support/grunt-reporter.js");
+      }
+  </script>
+
+<script type="text/html" data-path="/fixtures/user.html"><p>{{user.name}}</p></script>
+
+<!-- NOTE: jade is really funny about white space -->
+<script type="text/jade" data-path="/fixtures/user.jade">
+p= user.name
+</script>
+
+<!-- NOTE: jade is really funny about white space -->
+<script type="text/jade" data-path="/fixtures/name.jade">
+p= name
+</script>
+
+<!-- NOTE: jade is really funny about white space -->
+<script type="text/jade" data-path="/fixtures/default_layout/user.jade">
+p= user.name
+</script>
+
+<!-- NOTE: jade is really funny about white space -->
+<script type="text/jade" data-path="/fixtures/default_layout/name.jade">
+p= name
+</script>
+
+<!-- NOTE: jade is really funny about white space -->
+<script type="text/jade" data-path="/fixtures/local_layout/user.jade">
+span= user.name
+</script>
+
+<script type="text/html" data-path="/fixtures/blog.html"><b>index</b></script>
+
+<!-- NOTE: jade is really funny about white space -->
+<script type="text/jade" data-path="/fixtures/blog/post.jade">
+h1 blog post
+</script>
+
+<!-- NOTE: jade is really funny about white space -->
+<script type="text/jade" data-path="/fixtures/email.jade">
+p This is an email
+</script>
+
+<script>
+    onload = function() {
+      var runner = mocha.run();
+
+      var failedTests = [];
+      runner.on('end', function(){
+          window.mochaResults = runner.stats;
+          window.mochaResults.reports = failedTests;
+      });
+
+      runner.on('fail', logFailure);
+
+      function logFailure(test, err) {
+
+          var flattenTitles = function(test) {
+              var titles = [];
+              while (test.parent.title) {
+                  titles.push(test.parent.title);
+                  test = test.parent;
+              }
+              return titles.reverse();
+          };
+
+          failedTests.push({
+              name: test.title,
+              result: false,
+              message: err.message,
+              stack: err.stack,
+              titles: flattenTitles(test)
+          });
+      };
+    };
+</script>
+</body>
+</html>

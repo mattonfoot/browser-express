@@ -9,17 +9,6 @@
   },
   "author": "Matt Smith <mattonfoot@gmail.com> (http://about.me/mattonfoot)",
   "license": "MIT",
-  "testling": {
-    "browsers": [
-      "ie/latest",
-      "firefox/latest",
-      "chrome/latest",
-      "opera/latest",
-      "safari/latest"
-    ],
-    "harness": "mocha",
-    "html": "browser/all.html"
-  },
   "devDependencies": {
     "after": "^0.8.1",
     "blanket": "^1.1.6",
@@ -44,6 +33,7 @@
     "grunt-contrib-watch": "*",
     "grunt-coveralls": "*",
     "grunt-mocha": "*",
+    "grunt-saucelabs": "^8.3.2",
     "load-grunt-tasks": "*",
     "media-typer": "^0.3.0",
     "methods": "^1.1.0",
