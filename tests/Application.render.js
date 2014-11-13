@@ -11,7 +11,7 @@ var express = require('../');
 var request = require('./request');
 var get = request.get;
 
-describe('app', function(){
+describe('Application', function(){
     describe('.render(name, fn)', function(){
         it('should support absolute paths', function(done){
           var app = expression();
@@ -103,21 +103,15 @@ describe('app', function(){
                 app.set('views',  '/fixtures');
 
                 app.render('user.jade', function(err, str){
-                    // nextTick to prevent cyclic
-                    process.nextTick(function(){
-                        try {
-                          err.message.should.match( /Cannot read property '[^']+' of undefined/ );
-                        } catch( err ) {
+                    should.exist( err );
 
-                            try {
-                                err.message.should.match( /is not an object \(evaluating / ); // phantomjs error is different from jade
-                            } catch( err ) {
-                                return done( err );
-                            }
-                        }
+                    try {
+                      err.message.should.contain( 'undefined on line 2' );
+                    } catch( err ) {
+                      err.message.should.contain( 'not an object' );
+                    }
 
-                        done();
-                    });
+                    done();
                 });
             });
         });

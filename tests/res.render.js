@@ -113,14 +113,9 @@ describe('res', function(){
 
                 get( app, '/', function( res ) {
                     try {
-                      res.text.should.match( /Cannot read property '[^']+' of undefined/ );
+                      res.test.should.contain( 'undefined on line 2' );
                     } catch( err ) {
-
-                        try {
-                            res.text.should.match( /is not an object \(evaluating / ); // phantomjs error is different from jade
-                        } catch( err ) {
-                            return done( err );
-                        }
+                      res.text.should.contain( 'not an object' );
                     }
 
                     done();
@@ -369,14 +364,9 @@ describe('res', function(){
 
                 get( app, '/', function( res ) {
                     try {
-                      res.text.should.match( /Cannot read property '[^']+' of undefined/ );
+                      res.test.should.contain( 'undefined on line 2' );
                     } catch( err ) {
-
-                        try {
-                            res.text.should.match( /is not an object \(evaluating / ); // phantomjs error is different from jade
-                        } catch( err ) {
-                            return done( err );
-                        }
+                      res.text.should.contain( 'not an object' );
                     }
 
                     done();
