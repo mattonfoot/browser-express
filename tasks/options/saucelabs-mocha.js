@@ -9,9 +9,9 @@ module.exports = function( config ) {
     				options: {
     					username: 'mattonfoot',
     					key: config.env.SAUCE_ACCESS_KEY || '',
-    					tags: [ 'master', config.pkg.name ],
+    					tags: [ 'master' ],
     					urls: [ url ],
-              testname: config.pkg.name + ' [' + config.pkg.version + ']',
+              testname: config.pkg.name,
               build: config.pkg.version,
     					browsers: [
                   { browserName: 'chrome' }, // latest
