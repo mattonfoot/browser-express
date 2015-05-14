@@ -7,7 +7,6 @@ var should = chai.should();
 /*global it: false*/
 /*global window: false*/
 
-var after = require('after');
 var expression = require('..');
 var request = require('./request');
 var get = request.get;
