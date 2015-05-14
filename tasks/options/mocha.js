@@ -1,16 +1,28 @@
+
+
 module.exports = function() {
 
-    return {
+  return {
 
-        test: {
-            options: {
-                run: true,
-                reporter: 'Spec'
-            }
+    test: {
+      options: {
+        run: true,
+        reporter: 'Spec'
+      },
 
-          , src: [ 'browser/**/*.html', '!browser/navigation.html' ]
-        }
+      src: [ 'browser/**/*.html', '!browser/navigation.html' ]
+    },
 
-    };
+    junit: {
+      options: {
+        run: true,
+        reporter: 'mocha-junit-reporter',
+        captureFile: 'reports/junit.xml'
+      },
+
+      src: [ 'browser/**/*.html', '!browser/navigation.html' ]
+    }
+
+  };
 
 };

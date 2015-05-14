@@ -15,9 +15,9 @@ module.exports = function( config ) {
               build: config.pkg.version,
     					browsers: [
                   { browserName: 'chrome' }, // latest
-                  { browserName: 'safari' }, // latest
-                  { browserName: 'firefox' }, // latest
-                  { browserName: 'internet explorer' }, // latest
+                  //{ browserName: 'safari' }, // latest
+                  //{ browserName: 'firefox' }, // latest
+                  //{ browserName: 'internet explorer' }, // latest
                   /*
                   { browserName: 'internet explorer' version: '10' },
                   { browserName: 'internet explorer', version: '9' },
@@ -26,7 +26,7 @@ module.exports = function( config ) {
                   { browserName: 'internet explorer', version: '7' },
                   { browserName: 'internet explorer', version: '6' },
                   */
-                  { browserName: 'opera' } // latest
+                  //{ browserName: 'opera' } // latest
     					]
     				}
 
