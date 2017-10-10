@@ -47,7 +47,7 @@
     "parseurl": "^1.3.0",
     "path-to-regexp": "^1.0.1",
     "proxy-addr": "^1.0.8",
-    "qs": "^2.3.2",
+    "qs": "^6.0.4",
     "querystring": "^0.2.0",
     "utils-merge": "^1.0.0",
     "vary": "^1.0.0"
